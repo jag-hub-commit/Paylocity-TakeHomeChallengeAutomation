@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { 
     generateRandomAlphabeticalString, 
     generateRandomDependentNumber, 
-    netPaymentAndBenefitsDetailsOfEmployee 
+    calculateNetPaymentAndBenefitsDetailsOfEmployee 
 } = require('../../utils/HelperClass');
 
 const API_URL = 'https://wmxrwq14uc.execute-api.us-east-1.amazonaws.com/Prod/api/employees';
@@ -58,7 +58,7 @@ test.describe('Employee Benefits API Tests', () => {
 
     test('Validate Creation Of An Employee and Verify Benefit Calculations Of The Employee ', async ({ request }) => {
         const { sent, received } = await postEmployee(request);
-        const [expectedBenefits, expectedNetPay] = netPaymentAndBenefitsDetailsOfEmployee(sent.dependants);
+        const [expectedBenefits, expectedNetPay] = calculateNetPaymentAndBenefitsDetailsOfEmployee(sent.dependants);
 
         //Validate employee details and benefit calculations
         expect(received.firstName).toBe(sent.firstName);
@@ -103,7 +103,7 @@ test.describe('Employee Benefits API Tests', () => {
 
         const updatedLastName = 'Modified';
         const updatedDependants = 5;
-        const [updatedExpectedBenefits, updatedExpectedNetPay] = netPaymentAndBenefitsDetailsOfEmployee(updatedDependants);
+        const [updatedExpectedBenefits, updatedExpectedNetPay] = calculateNetPaymentAndBenefitsDetailsOfEmployee(updatedDependants);
 
         //Updated Payload
         const putPayload = {

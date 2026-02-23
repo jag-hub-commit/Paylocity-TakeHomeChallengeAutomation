@@ -3,7 +3,7 @@ const { LoginPage } = require('../../pageObjects/LoginPage');
 const { BenefitsDashboard } = require('../../pageObjects/BenefitsDashboard');
 const { AddEditEmployeeModal } = require('../../pageObjects/AddEditEmployeeModal');
 const { DeleteModal } = require('../../pageObjects/DeleteModal');
-const { generateRandomAlphabeticalString, generateRandomDependentNumber, netPaymentAndBenefitsDetailsOfEmployee } = require('../../utils/HelperClass');
+const { generateRandomAlphabeticalString, generateRandomDependentNumber, calculateNetPaymentAndBenefitsDetailsOfEmployee } = require('../../utils/HelperClass');
 
 test.describe.configure({ mode: 'serial' });
 
@@ -26,7 +26,7 @@ test.describe('Employee Benefits UI Tests', () => {
 
     //Validates all columns and handles ID check for update testcase  
     async function verifyEmployeeRowDetails(name, dependants, expectedId = null) {
-        const [benefits, netPay] = netPaymentAndBenefitsDetailsOfEmployee(dependants);
+        const [benefits, netPay] = calculateNetPaymentAndBenefitsDetailsOfEmployee(dependants);
         
         // Grab the ID from the first column (index 0)
         const actualId = (await dashboard.validateEmployeeDetailsInDashboard(name, 0)).trim();

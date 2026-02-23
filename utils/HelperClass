@@ -15,7 +15,7 @@ function generateRandomDependentNumber() {
     return Math.floor(Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
 }
 
-function netPaymentAndBenefitsDetailsOfEmployee(dependants) {
+function calculateNetPaymentAndBenefitsDetailsOfEmployee(dependants) {
     const payCheckGross = 2000;
     const annualBenefitsCost = 1000 / 26;
     const dependantBenefitsCost = (500 / 26) * dependants;  
@@ -28,5 +28,5 @@ function netPaymentAndBenefitsDetailsOfEmployee(dependants) {
 module.exports = { 
     generateRandomAlphabeticalString, 
     generateRandomDependentNumber, 
-    netPaymentAndBenefitsDetailsOfEmployee 
+    calculateNetPaymentAndBenefitsDetailsOfEmployee 
 };
