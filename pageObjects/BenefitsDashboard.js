@@ -1,7 +1,7 @@
 exports.BenefitsDashboard = class BenefitsDashboard {
     constructor(page) {
         this.page = page;
-        this.AddEmployeeButton = page.locator("#add");
+        this.AddEmployeeButton = page.getByRole('button', { name: 'Add Employee' });
         this.employeeTable = page.locator("#employeesTable");
     }
 

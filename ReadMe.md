@@ -8,5 +8,5 @@ API Testing: Validates RESTful endpoints, status codes, and JSON schemas.
 Helper Methods: Utilizes helper classes for random string generation and business logic calculations.
 
 **Pdfs**
-UIBugs -> containing all UI Bugs
-APIBugs -> containing all API Bugs
+UI Bugs_Jagya Nayak.pdf -> containing all UI Bugs
+API Bugs_Jagya Nayak.pdf -> containing all API Bugs
