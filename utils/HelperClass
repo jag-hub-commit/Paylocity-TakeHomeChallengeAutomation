@@ -1,0 +1,32 @@
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+function generateRandomAlphabeticalString(length) {
+    let result = ''; // Cleaned: no leading space
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+function generateRandomDependentNumber() {
+    const lowerBound = 0;
+    const upperBound = 32;
+    return Math.floor(Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+}
+
+function netPaymentAndBenefitsDetailsOfEmployee(dependants) {
+    const payCheckGross = 2000;
+    const annualBenefitsCost = 1000 / 26;
+    const dependantBenefitsCost = (500 / 26) * dependants;  
+    const totalBenefits = Math.round((annualBenefitsCost + dependantBenefitsCost) * 100) / 100;
+    const netPay = Math.round((payCheckGross - totalBenefits) * 100) / 100;
+    return [totalBenefits, netPay];
+}
+
+// Fixed the export mapping
+module.exports = { 
+    generateRandomAlphabeticalString, 
+    generateRandomDependentNumber, 
+    netPaymentAndBenefitsDetailsOfEmployee 
+};
